@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from scipy.signal import find_peaks
 from sklearn.linear_model import LinearRegression
 import streamlit as st
-st.title("阻尼振盪分析")  # 應用程式標題
+st.title("上包絡偵測程式")  # 應用程式標題
 uploaded_file = st.file_uploader("上傳您的 CSV 檔案", type=["csv"]) # 上傳檔案
 # 輸入 CSV 下載鏈接
 st.text("或者讀取線上csv數據")
