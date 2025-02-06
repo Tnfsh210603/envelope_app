@@ -64,7 +64,7 @@ if uploaded_file is not None:
     st.write("### ln(峰值振幅) vs 時間")
     fig2, ax2 = plt.subplots(figsize=(10, 6))
     ax2.scatter(peak_times, log_peak_amplitudes, color='red', label='Data (ln-transformed)')  # 資料點
-    ax2.plot(peak_times, log_amplitude_pred, color='blue',
+    ax2.plot(peak_times, log_amplitude_pred, 
              label=f'Fit: ln(A) = {slope:.5f}t + {intercept:.5f}')  # 回歸線
     ax2.set_title('Ln of Peak Amplitudes vs Time', fontsize=16)
     ax2.set_xlabel('Time (s)', fontsize=14)
