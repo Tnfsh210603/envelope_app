@@ -43,7 +43,7 @@ if uploaded_file is not None:
     # 繪製 振幅 vs 時間 圖
     st.write("### 振幅 vs 時間")
     fig1, ax1 = plt.subplots(figsize=(10, 6))
-    ax1.plot(time, amplitude, label='Damped Oscillation', color='blue')  # 使用藍色繪製原始信號
+    ax1.plot(time, amplitude, label='Damped Oscillation')  # 使用藍色繪製原始信號
     ax1.plot(peak_times.flatten(), peak_amplitudes, 'ro', label='Detected Peaks')  # 使用紅色標記峰值
     ax1.set_title('Amplitude vs Time', fontsize=16)
     ax1.set_xlabel('Time (s)', fontsize=14)
