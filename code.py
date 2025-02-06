@@ -78,8 +78,7 @@ if uploaded_file is not None:
     ax2.text(text_x + (peak_times.max() - peak_times.min()) * 0.1, 
              text_y, 
              f'ln(A) = {slope:.5f}t + {intercept:.5f}\n$R^2$ = {r_squared:.4f}', 
-             fontsize=12, 
-             bbox=dict(facecolor='white', alpha=0.8))
+             fontsize=12)
     st.pyplot(fig2)
 
     # 顯示回歸結果
@@ -87,5 +86,4 @@ if uploaded_file is not None:
     st.write(f"斜率 (衰減率): {slope:.5f}")
     st.write(f"截距: {intercept:.5f}")
     st.write(f"R² 值: {r_squared:.4f}")
-
 
