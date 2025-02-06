@@ -61,7 +61,7 @@ if uploaded_file is not None:
     r_squared = model.score(peak_times, log_peak_amplitudes)  # R 平方值
 
     # 繪製 ln(峰值振幅) vs 時間 圖
-    st.write("### ln(上包絡位移') vs 時間")
+    st.write("### ln(上包絡位移) vs 時間")
     fig2, ax2 = plt.subplots(figsize=(10, 6))
     ax2.scatter(peak_times, log_peak_amplitudes, color='red', label='Data (ln-transformed)')  # 使用紅色散點
     ax2.plot(peak_times, log_amplitude_pred, color='blue',
