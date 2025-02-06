@@ -86,9 +86,9 @@ if uploaded_file is not None:
     ax2.scatter(peak_times, log_peak_amplitudes, color='red', label='ln transformed data')  # 資料點
     ax2.plot(peak_times, log_amplitude_pred, color='blue',
              label=f'Fit: ln(A) = {slope:.4f}t + {intercept:.4f}')  # 回歸線
-    ax2.set_title('ln(Amplitude) vs Time')
+    ax2.set_title('ln(Displacement) vs Time')
     ax2.set_xlabel('Time (s)')
-    ax2.set_ylabel('ln(Amplitude)')
+    ax2.set_ylabel('ln(Displacement)')
     ax2.legend()
     ax2.grid()
     st.pyplot(fig2)
