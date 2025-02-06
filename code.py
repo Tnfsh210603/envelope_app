@@ -19,9 +19,10 @@ if uploaded_file or sheet_url:
     st.dataframe(data)  # 顯示資料表
 
 # 提取欄位
-    
-    time = data['st.text_input('輸入csv檔或試算表之時間欄位名稱')']  # 時間欄位
-    amplitude = data['st.text_input('輸入csv檔或試算表之位移欄位名稱')']  # 振幅欄位
+    a=st.text_input('輸入csv檔或試算表之時間欄位名稱')
+    b=st.text_input('輸入csv檔或試算表之位移欄位名稱')
+    time = data[a]  # 時間欄位
+    amplitude = data[b]  # 振幅欄位
 
 # 峰值檢測
     peaks, _ = find_peaks(amplitude)
