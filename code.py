@@ -59,8 +59,8 @@ if uploaded_file is not None:
     # 繪製 振幅 vs 時間 圖
     st.write("### 上包絡 vs 時間")
     fig1, ax1 = plt.subplots(figsize=(10, 6))
-    ax1.plot(time, amplitude, label='振幅信號')  # 繪製原始信號
-    ax1.plot(peak_times.flatten(), peak_amplitudes, 'ro', label='檢測到的峰值')  # 標記峰值
+    ax1.plot(time, amplitude, label='Displacement')  # 繪製原始信號
+    ax1.plot(peak_times.flatten(), peak_amplitudes, 'ro', label='Envelope')  # 標記峰值
     ax1.set_title('Displacement vs Time')
     ax1.set_xlabel('Time (s)')
     ax1.set_ylabel('Displacement (m)')
