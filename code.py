@@ -57,13 +57,13 @@ if uploaded_file is not None:
     st.dataframe(peak_data)  # 顯示資料表
 
     # 繪製 振幅 vs 時間 圖
-    st.write("### 振幅 vs 時間")
+    st.write("### 上包絡 vs 時間")
     fig1, ax1 = plt.subplots(figsize=(10, 6))
     ax1.plot(time, amplitude, label='振幅信號')  # 繪製原始信號
     ax1.plot(peak_times.flatten(), peak_amplitudes, 'ro', label='檢測到的峰值')  # 標記峰值
-    ax1.set_title('振幅 vs 時間')
-    ax1.set_xlabel('時間 (s)')
-    ax1.set_ylabel('振幅 (m)')
+    ax1.set_title('Displacement vs Time')
+    ax1.set_xlabel('Time (s)')
+    ax1.set_ylabel('Displacement (m)')
     ax1.legend()
     ax1.grid()
     st.pyplot(fig1)
@@ -81,14 +81,14 @@ if uploaded_file is not None:
         st.stop()
 
     # 繪製 ln(峰值振幅) vs 時間 圖
-    st.write("### ln(峰值振幅) vs 時間")
+    st.write("### ln(上包絡位移) vs 時間")
     fig2, ax2 = plt.subplots(figsize=(10, 6))
-    ax2.scatter(peak_times, log_peak_amplitudes, color='red', label='數據（自然對數）')  # 資料點
+    ax2.scatter(peak_times, log_peak_amplitudes, color='red', label='ln transformed data')  # 資料點
     ax2.plot(peak_times, log_amplitude_pred, color='blue',
-             label=f'擬合: ln(A) = {slope:.4f}t + {intercept:.4f}')  # 回歸線
-    ax2.set_title('ln(峰值振幅) vs 時間')
-    ax2.set_xlabel('時間 (s)')
-    ax2.set_ylabel('ln(峰值振幅)')
+             label=f'Fit: ln(A) = {slope:.4f}t + {intercept:.4f}')  # 回歸線
+    ax2.set_title('ln(Amplitude) vs Time')
+    ax2.set_xlabel('Time (s)')
+    ax2.set_ylabel('ln(Amplitude)')
     ax2.legend()
     ax2.grid()
     st.pyplot(fig2)
