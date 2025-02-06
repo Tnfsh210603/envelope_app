@@ -41,13 +41,13 @@ if uploaded_file is not None:
     log_peak_amplitudes = np.log(peak_amplitudes)  # 計算峰值振幅的自然對數
 
     # 繪製 振幅 vs 時間 圖
-    st.write("### 振幅 vs 時間")
+    st.write("### 位移 vs 時間")
     fig1, ax1 = plt.subplots(figsize=(10, 6))
     ax1.plot(time, amplitude, label='Damped Oscillation')  # 使用藍色繪製原始信號
     ax1.plot(peak_times.flatten(), peak_amplitudes, 'ro', label='Detected Peaks')  # 使用紅色標記峰值
-    ax1.set_title('Amplitude vs Time', fontsize=16)
+    ax1.set_title('Displacement vs Time', fontsize=16)
     ax1.set_xlabel('Time (s)', fontsize=14)
-    ax1.set_ylabel('Amplitude (m)', fontsize=14)
+    ax1.set_ylabel('Displacement (m)', fontsize=14)
     ax1.legend(fontsize=12, loc='upper right')
     ax1.grid()
     st.pyplot(fig1)
@@ -61,7 +61,7 @@ if uploaded_file is not None:
     r_squared = model.score(peak_times, log_peak_amplitudes)  # R 平方值
 
     # 繪製 ln(峰值振幅) vs 時間 圖
-    st.write("### ln(峰值振幅) vs 時間")
+    st.write("### ln(上包絡位移') vs 時間")
     fig2, ax2 = plt.subplots(figsize=(10, 6))
     ax2.scatter(peak_times, log_peak_amplitudes, color='red', label='Data (ln-transformed)')  # 使用紅色散點
     ax2.plot(peak_times, log_amplitude_pred, color='blue',
