@@ -43,8 +43,8 @@ if uploaded_file is not None:
     # 繪製 振幅 vs 時間 圖
     st.write("### 振幅 vs 時間")
     fig1, ax1 = plt.subplots(figsize=(10, 6))
-    ax1.plot(time, amplitude, label='Damped Oscillation', color='blue')  # 繪製原始信號
-    ax1.plot(peak_times.flatten(), peak_amplitudes, 'ro', label='Detected Peaks')  # 標記峰值
+    ax1.plot(time, amplitude, label='Damped Oscillation', color='blue')  # 使用藍色繪製原始信號
+    ax1.plot(peak_times.flatten(), peak_amplitudes, 'ro', label='Detected Peaks')  # 使用紅色標記峰值
     ax1.set_title('Amplitude vs Time', fontsize=16)
     ax1.set_xlabel('Time (s)', fontsize=14)
     ax1.set_ylabel('Amplitude (m)', fontsize=14)
@@ -63,9 +63,9 @@ if uploaded_file is not None:
     # 繪製 ln(峰值振幅) vs 時間 圖
     st.write("### ln(峰值振幅) vs 時間")
     fig2, ax2 = plt.subplots(figsize=(10, 6))
-    ax2.scatter(peak_times, log_peak_amplitudes, label='Data (ln-transformed)')  # 資料點
-    ax2.plot(peak_times, log_amplitude_pred, 
-             label=f'Fit: ln(A) = {slope:.5f}t + {intercept:.5f}')  # 回歸線
+    ax2.scatter(peak_times, log_peak_amplitudes, color='red', label='Data (ln-transformed)')  # 使用紅色散點
+    ax2.plot(peak_times, log_amplitude_pred, color='blue',
+             label=f'Fit: ln(A) = {slope:.5f}t + {intercept:.5f}')  # 使用藍色回歸線
     ax2.set_title('Ln of Peak Amplitudes vs Time', fontsize=16)
     ax2.set_xlabel('Time (s)', fontsize=14)
     ax2.set_ylabel('ln(Peak Amplitude)', fontsize=14)
@@ -86,4 +86,5 @@ if uploaded_file is not None:
     st.write(f"斜率 (衰減率): {slope:.5f}")
     st.write(f"截距: {intercept:.5f}")
     st.write(f"R² 值: {r_squared:.4f}")
+
 
