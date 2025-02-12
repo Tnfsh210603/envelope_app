@@ -7,6 +7,11 @@ import streamlit as st
 
 st.title("上包絡偵測程式")  # 應用程式標題
 
+# 提供 CSV 下載
+st.write("### 下載範例數據")
+with open("物理科展-小宇組 - DEMO (3).csv", "rb") as file:
+    st.download_button(label="📥 下載範例數據", data=file, file_name="demo_data.csv", mime="text/csv")
+
 # 上傳 CSV 檔案
 uploaded_file = st.file_uploader("上傳您的 CSV 檔案", type=["csv"])  # 上傳檔案
 
@@ -86,5 +91,6 @@ if uploaded_file is not None:
     st.write(f"斜率 (衰減率): {slope:.5f}")
     st.write(f"截距: {intercept:.5f}")
     st.write(f"R² 值: {r_squared:.4f}")
+
 
 
