@@ -9,7 +9,7 @@ st.title("上包絡偵測程式")  # 應用程式標題
 
 # 提供 CSV 下載
 st.write("### 下載範例數據")
-csv_url = "https://github.com/Tnfsh210603/envelope_app/blob/main/sample.csv"
+csv_url = "https://raw.githubusercontent.com/Tnfsh210603/envelope_app/main/sample.csv"
 demo_data = pd.read_csv(csv_url)
 csv_buffer = demo_data.to_csv(index=False)
 st.download_button(
