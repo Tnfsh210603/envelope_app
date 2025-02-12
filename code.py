@@ -4,25 +4,19 @@ import matplotlib.pyplot as plt
 from scipy.signal import find_peaks
 from sklearn.linear_model import LinearRegression
 import streamlit as st
-from io import StringIO
 
 st.title("上包絡偵測程式")  # 應用程式標題
 
 # 提供 CSV 下載
 st.write("### 下載範例數據")
-csv_data = """時間,位移
-0,0.5
-1,0.4
-2,0.3
-3,0.2
-4,0.1
-"""  # 這裡直接填入你的 CSV 資料
-st.download_button(
-    label="📥 下載範例數據",
-    data=csv_data,
-    file_name="demo_data.csv",
-    mime="text/csv"
-)
+demo_file_path = "/mnt/data/物理科展-小宇組 - DEMO (3).csv"
+with open(demo_file_path, "rb") as file:
+    st.download_button(
+        label="📥 下載範例數據",
+        data=file,
+        file_name="demo_data.csv",
+        mime="text/csv"
+    )
 
 # 上傳 CSV 檔案
 uploaded_file = st.file_uploader("上傳您的 CSV 檔案", type=["csv"])  # 上傳檔案
@@ -103,6 +97,7 @@ if uploaded_file is not None:
     st.write(f"斜率 (衰減率): {slope:.5f}")
     st.write(f"截距: {intercept:.5f}")
     st.write(f"R² 值: {r_squared:.4f}")
+
 
 
 
