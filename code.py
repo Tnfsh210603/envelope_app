@@ -9,14 +9,15 @@ st.title("上包絡偵測程式")  # 應用程式標題
 
 # 提供 CSV 下載
 st.write("### 下載範例數據")
-demo_file_path = "/mnt/data/物理科展-小宇組 - DEMO (3).csv"
-with open(demo_file_path, "rb") as file:
-    st.download_button(
-        label="📥 下載範例數據",
-        data=file,
-        file_name="demo_data.csv",
-        mime="text/csv"
-    )
+csv_url = "https://docs.google.com/spreadsheets/d/1WDSR-wPOuZgkATdxcuQN_CM0Z47SNGEn-Q26dckMIvk/edit?usp=sharing"
+demo_data = pd.read_csv(csv_url)
+csv_buffer = demo_data.to_csv(index=False)
+st.download_button(
+    label="📥 下載範例數據",
+    data=csv_buffer,
+    file_name="demo_data.csv",
+    mime="text/csv"
+)
 
 # 上傳 CSV 檔案
 uploaded_file = st.file_uploader("上傳您的 CSV 檔案", type=["csv"])  # 上傳檔案
